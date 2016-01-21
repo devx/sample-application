@@ -25,6 +25,8 @@ func Index(w http.ResponseWriter, req *http.Request) {
 		envs[variable[0]] = variable[1]
 	}
 
+	fmt.Printf("%s, %s, %s\n", req.RemoteAddr, req.Method, req.URL)
+
 	context.Env = envs
 	render(w, "index.html", context)
 }
